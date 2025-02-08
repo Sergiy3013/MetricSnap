@@ -1,0 +1,17 @@
+        <%- include('partials/header', { title: 'ServerState API Example' }) %>
+
+        <h1>ServerState API</h1>
+        <p>Example of using the serverState endpoint.</p>
+
+        <div class="preview">
+            <h2>Example Preview:</h2>
+            <img src="<%= encodedUrl %>" alt="Example metrics visualization">
+        </div>
+
+        <h2>Raw URL Request:</h2>
+        <pre class="url"><code><%= rawUrl %></code></pre>
+
+        <h2>JSON Data:</h2>
+        <pre><code><%= jsonData %></code></pre>
+
+        <%- include('partials/footer') %>

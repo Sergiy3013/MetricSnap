@@ -1,0 +1,28 @@
+{
+	"name": "metricsnap",
+	"version": "1.0.0",
+	"description": "MetricSnap generates dynamic images of server stats and project info based on incoming data",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"keywords": [
+		"Node.js",
+		"server stats",
+		"image generation",
+		"dynamic images",
+		"EJS",
+		"API",
+		"monitoring",
+		"metrics",
+		"server monitoring",
+		"project info"
+	],
+	"author": "sergiy3013",
+	"license": "ISC",
+	"dependencies": {
+		"canvas": "^3.1.0",
+		"ejs": "^3.1.10",
+		"express": "^4.21.2"
+	}
+}

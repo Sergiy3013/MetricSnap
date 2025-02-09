@@ -4,7 +4,7 @@ MetricSnap is a service that generates dynamic PNG images visualizing server met
 
 ## Features
 
-- 🖼️ Generate PNG images with server metrics
+- 🖼️ Generate PNG images with server metrics and project states
 - 📊 Visualize system resources usage (CPU, RAM, Disk)
 - ⚡ Real-time data rendering
 - 🔄 Easy integration with any monitoring system
@@ -32,39 +32,43 @@ Generate an image with server metrics:
 GET /api/v1/serverState?data={jsonData}
 ```
 
-Example request data:
+Example request:
 
-```json
-{
-  "title": "Server Stats Example",
-  "subtitle": "Current Server Usage",
-  "uptime": "1 day, 2:30",
-  "dataSource": [
-    {
-      "name": "CPU",
-      "usedPercent": "25"
-    },
-    {
-      "name": "RAM",
-      "total": "16GB",
-      "used": "8GB",
-      "left": "8GB",
-      "usedPercent": "50"
-    },
-    {
-      "name": "Disk",
-      "total": "512GB",
-      "used": "128GB",
-      "left": "384GB",
-      "usedPercent": "25"
-    }
-  ]
-}
+```http
+GET /api/v1/serverState?data={"title":"Server Stats Example","subtitle":"Current Server Usage","uptime":"1 day, 2:30","dataSource":[{"name":"CPU","usedPercent":"25"},{"name":"RAM","total":"16GB","used":"8GB","left":"8GB","usedPercent":"50"},{"name":"Disk","total":"512GB","used":"128GB","left":"384GB","usedPercent":"25"}]}
 ```
 
 Generated image example:
 
 ![Server State Example](docs/images/serverStateExample.png)
+
+### Project State Endpoint
+
+Generate an image with project state information:
+
+```http
+GET /api/v1/projectState?data={jsonData}
+```
+
+#### Example 1 - Mixed Interface Types
+
+```http
+GET /api/v1/projectState?data={"title":"Project Status","subtitle":"main server","dataSource":[{"name":"homepage","container":"true","interface":{"local":true,"global":"true"}},{"name":"pi_hole","container":"true","interface":{"local":"true"}},{"name":"portainer","container":true,"interface":{"local":"false","global":false}},{"name":"botDiscord","container":"true","interface":false}]}
+```
+
+Generated image:
+
+![Project State Mixed Interface](docs/images/projectState_Mixed_Interface.png)
+
+#### Example 2 - Simple Interface Values
+
+```http
+GET /api/v1/projectState?data={"title":"Project Status","subtitle":"main server","dataSource":[{"name":"homepage","container":"true","interface":true},{"name":"pi_hole","container":"true","interface":"true"},{"name":"portainer","container":true,"interface":false},{"name":"botDiscord","container":"true"}]}
+```
+
+Generated image:
+
+![Project State Simple Interface](docs/images/projectState_Simple_Interface.png)
 
 ## Installation
 

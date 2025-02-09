@@ -1,0 +1,28 @@
+<%- include('partials/header', { title: 'ProjectState API Example' }) %>
+
+<h1>ProjectState API</h1>
+<p>Example of using the projectState endpoint.</p>
+
+<div class="preview">
+    <h2>Example 1: Mixed Interface Types</h2>
+    <img src="<%= encodedUrl1 %>" alt="Example 1 - Mixed interface types">
+    
+    <h3>Raw URL Request:</h3>
+    <pre class="url"><code><%= rawUrl1 %></code></pre>
+
+    <h3>JSON Data:</h3>
+    <pre><code><%= jsonData1 %></code></pre>
+</div>
+
+<div class="preview">
+    <h2>Example 2: Simple Interface Values</h2>
+    <img src="<%= encodedUrl2 %>" alt="Example 2 - Simple interface values">
+    
+    <h3>Raw URL Request:</h3>
+    <pre class="url"><code><%= rawUrl2 %></code></pre>
+
+    <h3>JSON Data:</h3>
+    <pre><code><%= jsonData2 %></code></pre>
+</div>
+
+<%- include('partials/footer') %>
